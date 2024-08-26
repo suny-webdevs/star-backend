@@ -7,8 +7,9 @@ const inter = Inter({
 })
 
 export const metadata = {
-  template: {
-    title: "%s | Star Backend",
+  title: {
+    default: "Star Backend",
+    template: "%s | Star Backend",
   },
   description: "A backend university",
 }
