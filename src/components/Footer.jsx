@@ -24,7 +24,7 @@ const Footer = () => {
     <footer className="pt-10 bg-white">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
-          <span className="text-5xl text-black font-bold font-mono">
+          <span className="text-4xl md:text-5xl text-black font-bold font-mono">
             {"<star-backend />"}
           </span>
           <p>

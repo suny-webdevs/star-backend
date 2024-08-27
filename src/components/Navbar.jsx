@@ -7,7 +7,10 @@ const Navbar = () => {
   const [state, setState] = useState(false)
 
   // Replace javascript:void(0) paths with your paths
-  const navigation = [{ title: "User", path: "/user" }]
+  const navigation = [
+    { title: "Home", path: "/" },
+    { title: "User", path: "/user" },
+  ]
 
   return (
     <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">

@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <div>{children}</div>
+        <div className="w-full min-h-screen flex justify-center items-center">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
