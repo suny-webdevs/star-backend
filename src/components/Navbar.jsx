@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigation = [
     { title: "Home", path: "/" },
     { title: "User", path: "/user" },
+    { title: "Api", path: "/api" },
   ]
 
   return (
