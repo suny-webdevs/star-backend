@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 const UserPage = async () => {
-  const { data } = await axios("http://localhost:3000/api/users")
+  //   const { data } = await axios("http://localhost:3000/api/users")
   const users = data.users
 
   return (
