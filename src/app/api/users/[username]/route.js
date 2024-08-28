@@ -1,23 +1,10 @@
-export const GET = async () => {
+export const GET = async (request, { params }) => {
+  console.log(params);
+  const user = users.find((user) => user.username === params.username);
+  if (!user) return Response.json({ success: false });
   return Response.json({
-    users,
-  });
-};
-
-export const POST = async (request) => {
-  const newUser = await request.json();
-  users.push({
-    id: users.length + 1,
-    fullName: newUser.fullName,
-    email: newUser.email,
-    username: newUser.username,
-    birthdate: newUser.birthdate,
-    gender: newUser.gender,
-  });
-
-  return Response.json({
-    message: "New user added",
-    users,
+    success: true,
+    user,
   });
 };
 

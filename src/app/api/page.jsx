@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Page = () => {
+const ApiPage = () => {
   return (
     <div>
       <h3 className="text-4xl font-bold text-white">Api urls</h3>
@@ -17,4 +17,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ApiPage;

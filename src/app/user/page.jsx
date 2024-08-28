@@ -3,11 +3,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// export const metadata = {
-//   title: "Users",
-//   description: "All users details of star-backend",
-// }
-
 const UserPage = () => {
   const [users, setUsers] = useState([]);
 
@@ -25,10 +20,15 @@ const UserPage = () => {
   return (
     <div>
       <h1 className="text-5xl font-bold">Users</h1>
-      <div className="mt-10 flex flex-col gap-2">
+      <div className="mt-10 flex w-1/2 flex-col gap-2">
         {users.map((user) => (
-          <Link href={user.username} key={user.id}>
-            {user.firstName} {user.lastName}
+          <Link
+            href={`/user/${user.username}`}
+            key={user.id}
+            className="rounded-md border p-5"
+          >
+            <h3 className="text-2xl font-bold text-white">{user.fullName}</h3>
+            <p className="text-white">{user.email}</p>
           </Link>
         ))}
       </div>
