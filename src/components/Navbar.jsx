@@ -1,26 +1,24 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(false);
 
   // Replace javascript:void(0) paths with your paths
   const navigation = [
     { title: "Home", path: "/" },
     { title: "User", path: "/user" },
     { title: "Api", path: "/api" },
-  ]
+    { title: "About", path: "/about" },
+  ];
 
   return (
-    <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-        <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <Link
-            href={"/"}
-            className="text-3xl font-bold font-mono text-black"
-          >
+    <nav className="w-full border-b bg-white md:static md:border-none md:text-sm">
+      <div className="mx-auto max-w-screen-xl items-center px-4 md:flex md:px-8">
+        <div className="flex items-center justify-between py-3 md:block md:py-5">
+          <Link href={"/"} className="font-mono text-3xl font-bold text-black">
             {"<star-backend />"}
           </Link>
           <div className="md:hidden">
@@ -48,7 +46,7 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -61,32 +59,26 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+          className={`mt-8 flex-1 pb-3 md:mt-0 md:block md:pb-0 ${
             state ? "block" : "hidden"
           }`}
         >
-          <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+          <ul className="items-center justify-end space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
-                <li
-                  key={idx}
-                  className="text-gray-700 hover:text-indigo-600"
-                >
-                  <a
-                    href={item.path}
-                    className="block"
-                  >
+                <li key={idx} className="text-gray-700 hover:text-indigo-600">
+                  <a href={item.path} className="block">
                     {item.title}
                   </a>
                 </li>
-              )
+              );
             })}
-            <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
-            <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
+            <span className="hidden h-6 w-px bg-gray-300 md:block"></span>
+            <div className="items-center gap-x-6 space-y-3 md:flex md:space-y-0">
               <li>
                 <a
                   href="javascript:void(0)"
-                  className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
+                  className="block rounded-lg border py-3 text-center text-gray-700 hover:text-indigo-600 md:border-none"
                 >
                   Log in
                 </a>
@@ -94,7 +86,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="javascript:void(0)"
-                  className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                  className="block rounded-lg bg-indigo-600 px-4 py-3 text-center font-medium text-white shadow hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none md:inline"
                 >
                   Sign in
                 </a>
@@ -104,7 +96,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
