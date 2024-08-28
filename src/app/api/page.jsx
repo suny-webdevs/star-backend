@@ -8,6 +8,7 @@ const Page = () => {
         <Link
           href={`${process.env.NEXT_PUBLIC_API_URL}/api/users`}
           className="text-lg font-medium text-white"
+          target="_blank"
         >
           1. Users
         </Link>
