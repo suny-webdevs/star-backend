@@ -1,30 +1,30 @@
-import Image from "next/image"
+import Image from "next/image";
 
 const Footer = () => {
   const footerNavs = [
     {
-      href: "javascript:void()",
+      href: "#",
       name: "Terms",
     },
     {
-      href: "javascript:void()",
+      href: "#",
       name: "License",
     },
     {
-      href: "javascript:void()",
+      href: "#",
       name: "Privacy",
     },
     {
-      href: "javascript:void()",
+      href: "#",
       name: "About us",
     },
-  ]
+  ];
 
   return (
-    <footer className="pt-10 bg-white">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-        <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
-          <span className="text-4xl md:text-5xl text-black font-bold font-mono">
+    <footer className="bg-white pt-10">
+      <div className="mx-auto max-w-screen-xl px-4 text-gray-600 md:px-8">
+        <div className="space-y-6 sm:mx-auto sm:max-w-md sm:text-center">
+          <span className="font-mono text-4xl font-bold text-black md:text-5xl">
             {"<star-backend />"}
           </span>
           <p>
@@ -33,21 +33,21 @@ const Footer = () => {
           </p>
           <div className="items-center gap-x-3 space-y-3 sm:flex sm:justify-center sm:space-y-0">
             <a
-              href="javascript:void(0)"
-              className="block py-2 px-4 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none"
+              href="#"
+              className="block rounded-lg bg-indigo-600 px-4 py-2 text-center font-medium text-white shadow-lg duration-150 hover:bg-indigo-500 hover:shadow-none active:bg-indigo-700"
             >
               Let&apos;s get started
             </a>
             <a
-              href="javascript:void(0)"
-              className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"
+              href="#"
+              className="flex items-center justify-center gap-x-2 rounded-lg border px-4 py-2 font-medium text-gray-700 duration-150 hover:text-gray-500 active:bg-gray-100 md:inline-flex"
             >
               Get access
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5"
+                className="h-5 w-5"
               >
                 <path
                   fillRule="evenodd"
@@ -58,18 +58,15 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
+        <div className="mt-10 items-center justify-between border-t py-10 sm:flex">
           <p>© 2022 Float UI Inc. All rights reserved.</p>
-          <ul className="flex flex-wrap items-center gap-4 mt-6 sm:text-sm sm:mt-0">
+          <ul className="mt-6 flex flex-wrap items-center gap-4 sm:mt-0 sm:text-sm">
             {footerNavs.map((item, idx) => (
               <li
                 key={idx}
-                className="text-gray-800 hover:text-gray-500 duration-150"
+                className="text-gray-800 duration-150 hover:text-gray-500"
               >
-                <a
-                  key={idx}
-                  href={item.href}
-                >
+                <a key={idx} href={item.href}>
                   {item.name}
                 </a>
               </li>
@@ -78,7 +75,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

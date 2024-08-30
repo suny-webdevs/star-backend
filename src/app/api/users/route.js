@@ -8,7 +8,7 @@ export const POST = async (request) => {
   const newUser = await request.json();
   users.push({
     id: users.length + 1,
-    fullName: newUser.fullName,
+    name: newUser.name,
     email: newUser.email,
     username: newUser.username,
     birthdate: newUser.birthdate,
@@ -24,7 +24,7 @@ export const POST = async (request) => {
 const users = [
   {
     id: 1,
-    fullName: "Md Suny Shaikh",
+    name: "Md Suny Shaikh",
     email: "mdsunyshaikh@gmail.com",
     username: "sunyshaikh",
     birthdate: "2000-01-15",
@@ -32,7 +32,7 @@ const users = [
   },
   {
     id: 2,
-    fullName: "John Doe",
+    name: "John Doe",
     email: "johndoe@example.com",
     username: "johndoe",
     birthdate: "1995-04-10",
@@ -40,7 +40,7 @@ const users = [
   },
   {
     id: 3,
-    fullName: "Jane Smith",
+    name: "Jane Smith",
     email: "janesmith@example.com",
     username: "janesmith",
     birthdate: "1998-08-23",
@@ -48,7 +48,7 @@ const users = [
   },
   {
     id: 4,
-    fullName: "Alice Johnson",
+    name: "Alice Johnson",
     email: "alicejohnson@example.com",
     username: "alicejohnson",
     birthdate: "1985-02-14",
@@ -56,7 +56,7 @@ const users = [
   },
   {
     id: 5,
-    fullName: "Bob Brown",
+    name: "Bob Brown",
     email: "bobbrown@example.com",
     username: "bobbrown",
     birthdate: "1992-12-05",
@@ -64,7 +64,7 @@ const users = [
   },
   {
     id: 6,
-    fullName: "Charlie Davis",
+    name: "Charlie Davis",
     email: "charliedavis@example.com",
     username: "charliedavis",
     birthdate: "1987-07-30",
@@ -72,7 +72,7 @@ const users = [
   },
   {
     id: 7,
-    fullName: "Diana Evans",
+    name: "Diana Evans",
     email: "dianaevans@example.com",
     username: "dianaevans",
     birthdate: "1999-03-18",
@@ -80,7 +80,7 @@ const users = [
   },
   {
     id: 8,
-    fullName: "Frank Harris",
+    name: "Frank Harris",
     email: "frankharris@example.com",
     username: "frankharris",
     birthdate: "1980-10-09",
@@ -88,7 +88,7 @@ const users = [
   },
   {
     id: 9,
-    fullName: "Grace Wilson",
+    name: "Grace Wilson",
     email: "gracewilson@example.com",
     username: "gracewilson",
     birthdate: "1990-06-21",
@@ -96,7 +96,7 @@ const users = [
   },
   {
     id: 10,
-    fullName: "Henry Martinez",
+    name: "Henry Martinez",
     email: "henrymartinez@example.com",
     username: "henrymartinez",
     birthdate: "1984-11-11",

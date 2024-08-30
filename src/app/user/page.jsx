@@ -20,14 +20,14 @@ const UserPage = () => {
   return (
     <div>
       <h1 className="text-5xl font-bold">Users</h1>
-      <div className="mt-10 flex w-1/2 flex-col gap-2">
+      <div className="mt-10 flex w-full flex-col gap-2 md:w-1/2">
         {users.map((user) => (
           <Link
             href={`/user/${user.username}`}
             key={user.id}
             className="rounded-md border p-5"
           >
-            <h3 className="text-2xl font-bold text-white">{user.fullName}</h3>
+            <h3 className="text-2xl font-bold text-white">{user.name}</h3>
             <p className="text-white">{user.email}</p>
           </Link>
         ))}
