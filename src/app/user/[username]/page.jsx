@@ -18,13 +18,15 @@ export const generateMetadata = async (username) => {
 };
 
 const UserDetailsPage = async ({ params }) => {
-  const { name, email, username, birthdate, gender } = await getUser(
+  const { name, email, username, birthdate, gender, role } = await getUser(
     params.username,
   );
 
   return (
     <div className="w-full rounded-md border p-5 md:w-1/2">
-      <p>Name : {name}</p>
+      <p>
+        Name : {name} ({role})
+      </p>
       <p>Email : {email}</p>
       <p>Username : {username}</p>
       <p>Birth date : {birthdate}</p>

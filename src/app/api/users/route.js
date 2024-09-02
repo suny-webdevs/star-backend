@@ -29,6 +29,7 @@ const users = [
     username: "sunyshaikh",
     birthdate: "2000-01-15",
     gender: "Male",
+    role: "admin",
   },
   {
     id: 2,
@@ -37,6 +38,7 @@ const users = [
     username: "johndoe",
     birthdate: "1995-04-10",
     gender: "Male",
+    role: "moderator",
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ const users = [
     username: "janesmith",
     birthdate: "1998-08-23",
     gender: "Female",
+    role: "member",
   },
   {
     id: 4,
@@ -53,6 +56,7 @@ const users = [
     username: "alicejohnson",
     birthdate: "1985-02-14",
     gender: "Female",
+    role: "user",
   },
   {
     id: 5,
@@ -61,6 +65,7 @@ const users = [
     username: "bobbrown",
     birthdate: "1992-12-05",
     gender: "Male",
+    role: "admin",
   },
   {
     id: 6,
@@ -69,6 +74,7 @@ const users = [
     username: "charliedavis",
     birthdate: "1987-07-30",
     gender: "Male",
+    role: "admin",
   },
   {
     id: 7,
@@ -77,6 +83,7 @@ const users = [
     username: "dianaevans",
     birthdate: "1999-03-18",
     gender: "Female",
+    role: "admin",
   },
   {
     id: 8,
@@ -85,6 +92,7 @@ const users = [
     username: "frankharris",
     birthdate: "1980-10-09",
     gender: "Male",
+    role: "admin",
   },
   {
     id: 9,
@@ -93,6 +101,7 @@ const users = [
     username: "gracewilson",
     birthdate: "1990-06-21",
     gender: "Female",
+    role: "admin",
   },
   {
     id: 10,
@@ -101,5 +110,6 @@ const users = [
     username: "henrymartinez",
     birthdate: "1984-11-11",
     gender: "Male",
+    role: "admin",
   },
 ];

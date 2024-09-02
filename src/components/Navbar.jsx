@@ -1,12 +1,16 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const Navbar = () => {
   const [state, setState] = useState(false);
   const [scroll, setScroll] = useState(false);
   const session = useSession();
+  console.log("session:", session);
+  const user = session?.data?.user;
+  console.log("session user", user);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +42,7 @@ const Navbar = () => {
           >
             {"<star-backend />"}
           </Link>
-          <div className="md:hidden">
+          <div onBlur={() => setState(!state)} className="md:hidden">
             <button
               className="text-white hover:text-indigo-600"
               onClick={() => setState(!state)}
@@ -90,16 +94,16 @@ const Navbar = () => {
                 </li>
               );
             })}
-            <span className="z-50 hidden h-6 w-px bg-gray-300 md:block"></span>
+            <span className="hidden h-6 w-px bg-gray-300 md:block"></span>
             <div className="items-center gap-x-6 space-y-3 md:flex md:space-y-0">
               {session.status === "authenticated" ? (
                 <li>
-                  <Link
-                    href="#"
+                  <button
+                    onClick={() => signOut()}
                     className="block rounded-lg border py-3 text-center text-white hover:text-indigo-600 md:border-none"
                   >
                     Log out
-                  </Link>
+                  </button>
                 </li>
               ) : (
                 <li>
@@ -112,6 +116,17 @@ const Navbar = () => {
                 </li>
               )}
             </div>
+            {session.status === "authenticated" && (
+              <span className="hidden h-6 w-px bg-gray-300 md:block"></span>
+            )}
+            {session.status === "authenticated" && (
+              <div>
+                <p>
+                  {user?.name} ({user?.role})
+                </p>
+                <p>{user?.email}</p>
+              </div>
+            )}
           </ul>
         </div>
       </div>
