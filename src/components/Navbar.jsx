@@ -106,14 +106,25 @@ const Navbar = () => {
                   </button>
                 </li>
               ) : (
-                <li>
-                  <Link
-                    href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/signin`}
-                    className="block rounded-lg bg-indigo-600 px-4 py-3 text-center font-medium text-white shadow hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none md:inline"
-                  >
-                    Log in
-                  </Link>
-                </li>
+                <div className="flex items-center gap-5">
+                  <li>
+                    <Link
+                      href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/signin`}
+                      className="block rounded-lg bg-indigo-600 px-4 py-3 text-center font-medium text-white shadow hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none md:inline"
+                    >
+                      Log in
+                    </Link>
+                  </li>
+                  <span className="hidden h-5 w-px bg-gray-300 md:block"></span>
+                  <li>
+                    <Link
+                      href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`}
+                      className="block rounded-lg bg-indigo-600 px-4 py-3 text-center font-medium text-white shadow hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none md:inline"
+                    >
+                      Sign up
+                    </Link>
+                  </li>
+                </div>
               )}
             </div>
             {session.status === "authenticated" && (

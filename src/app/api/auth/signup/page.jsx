@@ -1,9 +1,49 @@
+"use client";
+import axios from "axios";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-const Page = () => {
+const SignUpPage = () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    try {
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+      const birthdate = form.birthday.value;
+      const gender = form.gender.value;
+
+      const userInfo = {
+        name,
+        email,
+        password,
+        username: email.split("@")[0],
+        birthdate,
+        gender,
+        role: "user",
+      };
+
+      console.log(userInfo);
+
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup/save-user`,
+        userInfo,
+      );
+      if (data.res.insertedId) {
+        alert(data.message);
+      }
+      form.reset();
+      redirect(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/signin`);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <main className="flex w-full">
-      <div className="relative hidden h-screen flex-1 items-center justify-center bg-gray-900 lg:flex">
+      <div className="relative hidden h-screen flex-1 items-center justify-center bg-gray-900 md:rounded-l-xl lg:flex">
         <div className="relative z-10 w-full max-w-md">
           <h1 className="text-4xl font-bold text-white">
             {"<star-backend />"}
@@ -21,26 +61,36 @@ const Page = () => {
                 alt="images"
                 src="https://randomuser.me/api/portraits/women/79.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                width={100}
+                height={100}
               />
               <Image
                 alt="images"
                 src="https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                width={100}
+                height={100}
               />
               <Image
                 alt="images"
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=a72ca28288878f8404a795f39642a46f"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                width={100}
+                height={100}
               />
               <Image
                 alt="images"
                 src="https://randomuser.me/api/portraits/men/86.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                width={100}
+                height={100}
               />
               <Image
                 alt="images"
                 src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                width={100}
+                height={100}
               />
               <p className="translate-x-5 text-sm font-medium text-gray-400">
                 Join 5.000+ users
@@ -57,10 +107,10 @@ const Page = () => {
           }}
         ></div>
       </div>
-      <div className="flex h-screen flex-1 items-center justify-center">
+      <div className="flex h-screen flex-1 items-center justify-center bg-white sm:rounded-xl md:rounded-r-xl">
         <div className="w-full max-w-md space-y-8 bg-white px-4 text-gray-600 sm:px-0">
           <div className="">
-            <h1 className="text-4xl font-bold text-black">
+            <h1 className="text-4xl font-bold text-black md:hidden">
               {"<star-backend />"}
             </h1>
             <div className="mt-5 space-y-2">
@@ -131,10 +181,10 @@ const Page = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_910_21)">
+                <g clipPath="url(#clip0_910_21)">
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M24.0005 1C18.303 1.00296 12.7923 3.02092 8.45374 6.69305C4.11521 10.3652 1.23181 15.452 0.319089 21.044C-0.593628 26.636 0.523853 32.3684 3.47174 37.2164C6.41963 42.0643 11.0057 45.7115 16.4099 47.5059C17.6021 47.7272 18.0512 46.9883 18.0512 46.36C18.0512 45.7317 18.0273 43.91 18.0194 41.9184C11.3428 43.3608 9.93197 39.101 9.93197 39.101C8.84305 36.3349 7.26927 35.6078 7.26927 35.6078C5.09143 34.1299 7.43223 34.1576 7.43223 34.1576C9.84455 34.3275 11.1123 36.6194 11.1123 36.6194C13.2504 40.2667 16.7278 39.2116 18.0949 38.5952C18.3095 37.0501 18.9335 35.999 19.621 35.4023C14.2877 34.8017 8.68408 32.7548 8.68408 23.6108C8.65102 21.2394 9.53605 18.9461 11.156 17.2054C10.9096 16.6047 10.087 14.1785 11.3905 10.8829C11.3905 10.8829 13.4054 10.2427 17.9916 13.3289C21.9253 12.2592 26.0757 12.2592 30.0095 13.3289C34.5917 10.2427 36.6026 10.8829 36.6026 10.8829C37.9101 14.1706 37.0875 16.5968 36.8411 17.2054C38.4662 18.9464 39.353 21.2437 39.317 23.6187C39.317 32.7824 33.7015 34.8017 28.3602 35.3905C29.2186 36.1334 29.9856 37.5836 29.9856 39.8122C29.9856 43.0051 29.9578 45.5736 29.9578 46.36C29.9578 46.9962 30.391 47.7391 31.6071 47.5059C37.0119 45.7113 41.5984 42.0634 44.5462 37.2147C47.4941 32.3659 48.611 26.6326 47.6972 21.0401C46.7835 15.4476 43.8986 10.3607 39.5587 6.68921C35.2187 3.01771 29.7067 1.00108 24.0085 1H24.0005Z"
                     fill="#191717"
                   />
@@ -181,11 +231,13 @@ const Page = () => {
               Or continue with
             </p>
           </div>
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+          <form onSubmit={handleSignUp} className="space-y-5">
             <div>
               <label className="font-medium">Name</label>
               <input
                 type="text"
+                name="name"
+                placeholder="Your Name"
                 required
                 className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
               />
@@ -194,6 +246,8 @@ const Page = () => {
               <label className="font-medium">Email</label>
               <input
                 type="email"
+                name="email"
+                placeholder="you@gmail.com"
                 required
                 className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
               />
@@ -202,6 +256,28 @@ const Page = () => {
               <label className="font-medium">Password</label>
               <input
                 type="password"
+                name="password"
+                placeholder="********"
+                required
+                className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
+              />
+            </div>
+            <div>
+              <label className="font-medium">Gender</label>
+              <input
+                type="text"
+                name="gender"
+                placeholder="Male or Female"
+                required
+                className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
+              />
+            </div>
+            <div>
+              <label className="font-medium">Birthday</label>
+              <input
+                type="text"
+                name="birthday"
+                placeholder="ex. 01-05-2000"
                 required
                 className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
               />
@@ -216,4 +292,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default SignUpPage;
